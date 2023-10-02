@@ -1,0 +1,153 @@
+$color-background: #9579bc;
+$color-letter-table: #4b336d;
+$color-background-table: #79bcb650;
+$color-background-secondary: #F3F3F3;
+$color-shadow:#020202F0;
+$color-border:#7f7f7f;
+$size-letter-small: 12px;
+$size-letter-medium: 16px;
+$size-letter-big: 20px;
+$size-letter-large: 32px;
+
+.UBPDNamesPublic {
+  background-color: $color-background;
+  font-family: 'lato',sans-serif;
+  width: 100vw;
+
+  .names-title{
+    h1{
+      position: relative;;
+      color: $color-background-secondary;  
+      font-size: $size-letter-large;
+      text-align: center;
+      width: 33%;
+      margin: 0 auto;
+      padding: 15px;
+      padding-top: 20px;
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 30%;
+        height: 6px;
+        margin: 0 auto;
+        margin-top: 30px;
+        background-color: $color-background-secondary;
+      }
+    }
+  }
+
+  .names-text, .names-content {
+    p {
+      color: $color-background-secondary;
+      font-size: $size-letter-medium;
+      text-align: justify;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 10px 0;
+      font-weight: 500;
+
+    }
+  }
+
+  .names-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    padding: 10px;
+    width: 700px;
+    height: 70vh;
+    border-radius: 10px;
+    box-shadow: $color-shadow 0px 0px 25px;
+    background-color: $color-background-secondary;
+
+    
+    
+    .loading {
+      text-align: center;
+      font-size: $size-letter-large;
+      color: $color-background;
+      font-weight: bold;
+      font-family: 'lato', sans-serif;
+      display: none;
+    }
+    .table-container {
+      overflow-y: scroll;
+      .table {
+        .cabecera {
+          td {
+            font-family: 'lato',sans-serif;
+            text-align: center;
+            padding: 10px;
+            color: $color-letter-table;
+            font-weight: bold;
+          }
+        }
+        tr:nth-child(odd) {
+          color: $color-background-secondary;
+          background-color: $color-background-table;
+          
+        }
+        td {
+          font-family: 'lato',sans-serif;
+          color: $color-letter-table;
+          text-align: center;
+        }
+      }
+    }
+    .table-control {
+      input {
+        width: 40px;
+        height: 35px;
+        padding: 5px;
+        margin-top: 10px;
+        font-family: 'lato', sans-serif;
+        font-size: $size-letter-small;
+        font-weight: 600;
+        color: $color-letter-table;
+        border-radius: 5px;
+        border: 1.5px solid $color-background;
+        
+        &:nth-child(2) {
+          width: 60px;
+          height: 25px;
+          text-align: center;
+        }
+
+        &:nth-child(3) {
+          border: none;
+          text-align: center;
+        }
+
+        &:nth-child(4) {
+          width: 60px;
+          height: 25px;
+          text-align: center;
+        }
+        &:nth-child(1), &:nth-child(5){
+          &:hover{
+            background: $color-background;
+            color: $color-background-secondary;
+          }
+          &:disabled {
+            background-color: #F3F3F3;
+            color: #7f7f7f;
+            border: #7f7f7f solid 1px;
+          }
+        }
+      }
+    }
+    .error-message {
+      color: red;
+      font-family: 'lato', sans-serif;
+      font-size: $size-letter-small;
+      display: none;
+    }
+    .visible {
+      display: block;
+    }
+  }
+}

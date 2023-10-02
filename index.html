@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nombres Desaparecidos</title>
+  <link rel="StyleSheet" href="styles.css" type="text/css" />
+</head>
+<body>
+  <div class="UBPDNamesPublic">
+    <div class="names-title">
+      <h1>Cualquier titulo</h1>  
+    </div>
+    <div class="names-text">
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus molestias similique architecto, libero non assumenda inventore totam, fugiat magni velit optio nemo voluptatem veritatis repellat porro reiciendis quo, voluptates minus?
+      </p>  
+    </div>
+    <div class="names-content">
+      <div class="table-container">
+        <table class="table">
+          <tr class="cabecera">
+            <td>NO.</td>
+            <td>PRIMER NOMBRE</td>
+            <td>SEGUNDO NOMBRE</td>
+            <td>PRIMER APELLIDO</td>
+            <td>SEGUNDO APELLIDO</td>
+          </tr>
+          <div class="loading visible">Cargando nombres...</div>
+        </table>
+      </div>
+      <nav class="table-control">
+        <input type="button" class="button-back" value="<"/>
+        <input type="number" class="input-page" name="page" id="page" placeholder="1" max="" min="1"/>
+        <input type="text" value="de" disabled>
+        <input type="number" class="input-page-max" value="" disabled/>
+        <input type="button" class="button-next" value=">"/>
+      </nav>
+      <p class="error-message">Valor no permitido!</p>
+    </div>
+  </div>
+
+  <!-- Construcción Tabla -->
+  <script type="module">
+    import nombres from './nombres.js';
+    const containerTable = document.querySelector('.table');
+
+    let limit = 0
+    let offset = 0
+    let page = 1;
+    const maxPage = Math.ceil(nombres.length/1000);
+    
+    const queryURL = window.location.search;
+
+    //Creamos la instancia
+    const urlParams = new URLSearchParams(queryURL);
+    //Accedemos a los valores
+    if(urlParams.has('page')){
+      page= parseInt(urlParams.get('page'));
+    }
+    
+    
+    const capitalize = (str) => {
+      return str.charAt(0).toUpperCase() + str.toLowerCase().slice(1);
+    }
+    
+    const createStructure = (nombre) => {
+      const row =  document.createElement('tr');
+      for(const attr in nombre){
+        if( attr != 'fecha_desaparicion' && attr != 'anio_desaparicion' && attr != 'mes_desaparicion' && attr != 'dia_desaparicion' && attr != 'fecha_desaparicion_ajustada'){
+          const field = document.createElement('td');
+          if(nombre[attr]=='INDEFINIDO'){
+            field.innerText = '';
+          } else {
+            field.innerText = capitalize(nombre[attr].toString());
+          }
+          row.appendChild(field);
+        }
+      } 
+      containerTable.appendChild(row);
+    };
+    
+    function newQuery(page){
+      //leer attr
+      offset = (page*1000)-1000;
+      limit+=(page*1000);
+      const actualNames = nombres.slice(offset, limit);
+      actualNames.map(el => {
+        createStructure(el);
+      });
+    };
+
+    newQuery(page);
+    
+    const loadingMessage = document.querySelector('.loading');
+    loadingMessage.classList.remove('visible')
+    const buttonBack = document.querySelector('.button-back');
+    const buttonNext = document.querySelector('.button-next');
+    const inputPage = document.querySelector('.input-page');
+    const inputPageMax = document.querySelector('.input-page-max');
+    const errorMessage = document.querySelector('.error-message');
+    inputPage.placeholder = page;
+    inputPageMax.value = maxPage;
+    const url = '/?page=';
+    
+    if(page == 1) {
+      buttonBack.disabled = true;
+    } else {
+      buttonBack.disabled = false;
+    }
+    if(page == maxPage) {
+      console.log('si')
+      buttonNext.disabled = true;
+    } else {
+      buttonNext.disabled = false;
+    }
+
+
+
+    buttonBack.onclick = () => {
+      page--;
+      window.location.href=`${url}${page}`;
+    };
+    buttonNext.onclick = () => {
+      page++;
+      window.location.href=`${url}${page}`;
+    };
+    
+    inputPage.onchange = () => {
+      if(inputPage.value > 0 && inputPage.value <= maxPage ) {
+        console.log('entre')
+        page = inputPage.value;
+        window.location.href=`${url}${page}`;
+        errorMessage.classList.remove('visible');
+      } else {
+        errorMessage.classList.add('visible');
+      }
+    }
+  </script>
+</body>
+</html>
