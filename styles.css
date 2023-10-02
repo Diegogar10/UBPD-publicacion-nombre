@@ -125,3 +125,18 @@
 .UBPDNamesPublic .names-content .visible {
   display: block;
 }
+
+@media (max-width: 768px) {
+  .UBPDNamesPublic .names-title h1 {
+    font-size: 20px;
+    width: 100%;
+  }
+  .UBPDNamesPublic .names-text p {
+    width: 320px;
+  }
+  .UBPDNamesPublic .names-content {
+    width: 320px;
+    overflow-x: scroll;
+    font-size: 12px;
+  }
+}

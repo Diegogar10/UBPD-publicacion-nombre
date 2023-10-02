@@ -151,3 +151,24 @@ $size-letter-large: 32px;
     }
   }
 }
+
+@media (max-width: 768px) {
+  .UBPDNamesPublic {
+    .names-title {
+      h1 {
+        font-size: $size-letter-big;
+        width: 100%;
+      }
+    }
+    .names-text {
+      p {
+        width: 320px;
+      }
+    }
+    .names-content {
+      width: 320px;
+      overflow-x: scroll;
+      font-size: $size-letter-small;
+    }
+  }
+}
