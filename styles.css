@@ -1,7 +1,13 @@
+body, html, * {
+  margin: 0;
+  padding: 0;
+}
+
 .UBPDNamesPublic {
   background-color: #9579bc;
   font-family: "lato", sans-serif;
   width: 100vw;
+  height: 100vh;
 }
 .UBPDNamesPublic .names-title h1 {
   position: relative;

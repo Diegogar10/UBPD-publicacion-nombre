@@ -9,10 +9,16 @@ $size-letter-medium: 16px;
 $size-letter-big: 20px;
 $size-letter-large: 32px;
 
+body, html, * {
+  margin: 0;
+  padding: 0;
+}
+
 .UBPDNamesPublic {
   background-color: $color-background;
   font-family: 'lato',sans-serif;
   width: 100vw;
+  height: 100vh;
 
   .names-title{
     h1{
