@@ -54,7 +54,7 @@ body, html, * {
       margin: 0 auto;
       padding: 10px 0;
       font-weight: 500;
-
+      margin-bottom: 20px;
     }
   }
 
@@ -73,6 +73,7 @@ body, html, * {
     
     
     .loading {
+      margin: 150px auto;
       text-align: center;
       font-size: $size-letter-large;
       color: $color-background;
@@ -106,6 +107,7 @@ body, html, * {
     }
     .table-control {
       input {
+        display: inline-block;
         width: 40px;
         height: 35px;
         padding: 5px;
@@ -131,12 +133,18 @@ body, html, * {
         &:nth-child(4) {
           width: 60px;
           height: 25px;
+          border: none;
           text-align: center;
         }
         &:nth-child(1), &:nth-child(5){
+          background: $color-background;
+          color: $color-background-secondary;
+          font-size: $size-letter-big;
+          font-weight: 100;
+
           &:hover{
-            background: $color-background;
-            color: $color-background-secondary;
+            color: $color-background;
+            background: $color-background-secondary;
           }
           &:disabled {
             background-color: #F3F3F3;
@@ -144,6 +152,10 @@ body, html, * {
             border: #7f7f7f solid 1px;
           }
         }
+      }
+
+      .invisible {
+        display: none;
       }
     }
     .error-message {
@@ -163,7 +175,7 @@ body, html, * {
     .names-title {
       h1 {
         font-size: $size-letter-big;
-        width: 100%;
+        width: 90vw;
       }
     }
     .names-text {
@@ -175,6 +187,7 @@ body, html, * {
       width: 320px;
       overflow-x: scroll;
       font-size: $size-letter-small;
+      padding: 0 30px;
     }
   }
 }

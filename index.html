@@ -26,8 +26,8 @@
             <td>PRIMER APELLIDO</td>
             <td>SEGUNDO APELLIDO</td>
           </tr>
-          <div class="loading visible">Cargando nombres...</div>
         </table>
+        <div class="loading visible">Cargando nombres...</div>
       </div>
       <nav class="table-control">
         <input type="button" class="button-back" value="<"/>
@@ -104,15 +104,14 @@
     const url = '/?page=';
     
     if(page == 1) {
-      buttonBack.disabled = true;
+      buttonBack.classList.add('invisible');
     } else {
-      buttonBack.disabled = false;
+      buttonBack.classList.remove('invisible');
     }
     if(page == maxPage) {
-      console.log('si')
-      buttonNext.disabled = true;
+      buttonNext.classList.add('invisible');
     } else {
-      buttonNext.disabled = false;
+      buttonNext.classList.remove('invisible');
     }
 
 
