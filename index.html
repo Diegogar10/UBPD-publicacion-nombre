@@ -111,9 +111,33 @@
       setTimeout(()=>{
         const wordSearch = e.target.value.toLowerCase();
         if(wordSearch != '') {
+          const words = wordSearch.split(" ");
           const newArraySearch = nombres.filter((element)=>{
+            let n = 0;   
+            if(words.find(nombre => element.primer_nombre.toLowerCase() == nombre )){
+              n++;
+            }
+            if(words.find(nombre => element.segundo_nombre.toLowerCase() == nombre)){
+              n++;
+            }
+            if(words.find(nombre => element.primer_apellido.toLowerCase() == nombre)){
+              n++;
+            }      
+            if(words.find(nombre => element.segundo_apellido.toLowerCase() == nombre )){
+              n++;
+            }
+
+            return n === words.length;
+
+            /* 
             const nombre = `${element.primer_nombre} ${element.segundo_nombre} ${element.primer_apellido} ${element.segundo_apellido}`.toLowerCase();
-            return nombre.includes(wordSearch);
+            return nombre.includes(wordSearch); 
+            
+            element.primer_nombre.toLowerCase().includes(wordSearch);
+            return element.segundo_nombre.toLowerCase().includes(wordSearch);
+            return element.primer_apellido.toLowerCase().includes(wordSearch);
+            return element.segundo_apellido.toLowerCase().includes(wordSearch);
+          */
           }); 
           registrosBuscados.innerHTML = `Se encontraron ${newArraySearch.length} registros similares a tu búsqueda!`;
           newQuery(newArraySearch);
