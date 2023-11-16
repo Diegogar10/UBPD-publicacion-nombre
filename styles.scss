@@ -1,0 +1,327 @@
+$color-letter:#323232;
+$color-background: #9579bc;
+$color-letter-table: #3c2a55;
+$color-background-table: #79bcb650;
+$color-background-secondary: #F3F3F3;
+$color-shadow:#0202028a;
+$color-border:#7f7f7f;
+$size-letter-small: 12px;
+$size-letter-medium: 14px;
+$size-letter-medium2: 16px;
+$size-letter-big: 20px;
+$size-letter-large: 32px;
+
+body, html, * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.UBPDNamesPublic {
+  background: url('./TexturaMoradaV2.png') repeat;
+  background-size: 700px;
+  font-family: 'Lato',sans-serif;
+  width: 100vw;
+  
+  .names-title{
+    h1{
+      position: relative;;
+      color: $color-background;  
+      font-size: $size-letter-large;
+      text-align: center;
+      width: 600px;
+      margin: 0 auto;
+      padding: 10px;
+      padding: 20px;
+      text-shadow: $color-background-table 0 0 5px;
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 90%;
+        height: 4px;
+        margin: 0 auto;
+        margin-top: 30px;
+        background-color: $color-background;
+        box-shadow: $color-background-table 0 0 3px;
+      }
+    }
+  }
+
+  .disclaimer {
+    padding: 10px 30px;
+    background-color: white;
+    width: 764px;
+    margin: 0 auto;
+    border-radius: 10px;
+    margin-bottom: 25px;    
+    box-shadow: $color-shadow 0px 0px 15px;
+    .text-desclaimer{
+      color: $color-letter;
+      text-shadow: none;
+    }
+  }
+  
+  .names-text, .names-content {
+    p {
+      color: $color-background;
+      font-size: $size-letter-medium2;
+      text-align: justify;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 10px;
+      padding-top: 15px;
+      font-weight: 500;
+      padding-bottom: 15px;
+      overflow: hidden;
+      //text-shadow: $color-background-table 0 0 5px;
+      a{
+        color: $color-letter-table;
+      }
+    }
+    .container-button-back {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+      .button-back {
+        background: $color-background;
+        color: $color-background-secondary;
+        font-size: $size-letter-big;
+        font-weight: 100;
+        text-decoration: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+
+        &:hover{
+          color: $color-background;
+          background: $color-background-secondary;
+        }
+      }
+    }
+  }
+
+  .names-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    padding: 10px;
+    width: 700px;
+    height: 90vh;
+    border-radius: 10px;
+    box-shadow: $color-shadow 0px 0px 15px;
+    background-color: $color-background-secondary;
+
+    
+    
+    .loading {
+      position: absolute;
+      top: 30px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 3;
+      margin: 150px auto;
+      text-align: center;
+      font-size: $size-letter-large;
+      color: $color-background;
+      background-color: $color-background-secondary;
+      font-weight: bold;
+      font-family: 'Lato', sans-serif;
+      display: none;
+    }
+    .table-container {
+      overflow-y: scroll;
+      position: relative;
+      width: 100%;
+      min-height: 50%;
+
+      .search-container {
+        position: -webkit-sticky; /* Safari */
+        position: sticky;
+        top: 0;
+        margin-left: 15px;
+        input {
+          width: 95%;
+          border: none;
+          padding: 10px;
+          font-family: 'Lato', sans-serif;
+          font-size: $size-letter-medium;
+          color: $color-letter;
+          border-radius: 15px;
+          margin: 10px 0;
+          &:focus {
+            outline: none;
+            border: solid 2px $color-background;
+          }
+        }
+        
+        .button-search {
+          position: absolute;
+          right: 45px;
+          top: 15px;
+          width: 25px;
+          height: 25px;
+          border-radius: 50%;
+          background: none;
+          border: none;
+          cursor: pointer;
+          
+          &:focus {
+            outline: none;
+          } 
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+
+      .table {
+        .cabecera {
+          td {
+            font-family: 'Lato',sans-serif;
+            text-align: center;
+            padding: 10px;
+            color: $color-letter;
+            font-size: $size-letter-medium;
+            font-weight: bold;
+          }
+        }
+        tr:nth-child(odd) {
+          color: $color-background-secondary;
+          background-color: $color-background-table;
+          
+        }
+        td {
+          font-family: 'Lato',sans-serif;
+          color: $color-letter;
+          text-align: center;
+          padding: 5px 0;
+        }
+      }
+    }
+    .table-control {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding-bottom: 10px;
+      input {
+        display: inline-block;
+        width: 40px;
+        height: 35px;
+        padding: 5px;
+        margin-top: 10px;
+        font-family: 'Lato', sans-serif;
+        font-size: $size-letter-small;
+        font-weight: 600;
+        color: $color-letter-table;
+        border-radius: 5px;
+        border: 1.5px solid $color-background;
+        cursor: pointer;
+        
+        &:nth-child(2) {
+          width: 60px;
+          height: 35px;
+          text-align: center;
+        }
+
+        &:nth-child(3) {
+          border: none;
+          text-align: center;
+        }
+
+        &:nth-child(4) {
+          width: 60px;
+          height: 25px;
+          border: none;
+          text-align: center;
+        }
+        &:nth-child(1), &:nth-child(5), &:nth-child(6){
+          background: $color-background;
+          color: $color-background-secondary;
+          font-size: $size-letter-big;
+          font-weight: 100;
+
+          &:hover{
+            color: $color-background;
+            background: $color-background-secondary;
+          }
+          &:disabled {
+            background-color: #F3F3F3;
+            color: #7f7f7f;
+            border: #7f7f7f solid 1px;
+          }
+        }
+        &:nth-child(6) {
+          width: min-content;
+          padding: 0 10px;
+        }
+      }
+
+      .invisible {
+        display: none;
+      }
+    }
+    .error-message {
+      color: red;
+      font-family: 'Lato', sans-serif;
+      font-size: $size-letter-small;
+      display: none;
+    }
+    .visible {
+      display: block;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .UBPDNamesPublic {
+    .names-title {
+      h1 {
+        font-size: $size-letter-big;
+        width: 90vw;
+      }
+    }
+    .names-text {
+      p {
+        width: 320px;
+        a{
+          font-size: $size-letter-medium;
+          width: 320px;
+        }
+      }
+    }
+    .disclaimer {
+      width: 100%;
+    }
+    .names-content {
+      width: 320px;
+      overflow-x: scroll;
+      font-size: $size-letter-small;
+      padding: 0;
+      .table-container{
+        .table {
+          .cabecera{
+            td:nth-child(1) {
+              padding-left: 20px;
+            }
+            td {
+              font-size: $size-letter-small;
+              padding: 2px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

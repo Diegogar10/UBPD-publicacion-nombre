@@ -1,0 +1,298 @@
+body, html, * {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.UBPDNamesPublic {
+  background: url("./TexturaMoradaV2.png") repeat;
+  background-size: 700px;
+  font-family: "Lato", sans-serif;
+  width: 100vw;
+}
+.UBPDNamesPublic .names-title h1 {
+  position: relative;
+  color: #9579bc;
+  font-size: 32px;
+  text-align: center;
+  width: 600px;
+  margin: 0 auto;
+  padding: 10px;
+  padding: 20px;
+  text-shadow: rgba(121, 188, 182, 0.3137254902) 0 0 5px;
+}
+.UBPDNamesPublic .names-title h1::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 90%;
+  height: 4px;
+  margin: 0 auto;
+  margin-top: 30px;
+  background-color: #9579bc;
+  -webkit-box-shadow: rgba(121, 188, 182, 0.3137254902) 0 0 3px;
+          box-shadow: rgba(121, 188, 182, 0.3137254902) 0 0 3px;
+}
+.UBPDNamesPublic .disclaimer {
+  padding: 10px 30px;
+  background-color: white;
+  width: 764px;
+  margin: 0 auto;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  -webkit-box-shadow: rgba(2, 2, 2, 0.5411764706) 0px 0px 15px;
+          box-shadow: rgba(2, 2, 2, 0.5411764706) 0px 0px 15px;
+}
+.UBPDNamesPublic .disclaimer .text-desclaimer {
+  color: #323232;
+  text-shadow: none;
+}
+.UBPDNamesPublic .names-text p, .UBPDNamesPublic .names-content p {
+  color: #9579bc;
+  font-size: 16px;
+  text-align: justify;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 10px;
+  padding-top: 15px;
+  font-weight: 500;
+  padding-bottom: 15px;
+  overflow: hidden;
+}
+.UBPDNamesPublic .names-text p a, .UBPDNamesPublic .names-content p a {
+  color: #3c2a55;
+}
+.UBPDNamesPublic .names-text .container-button-back, .UBPDNamesPublic .names-content .container-button-back {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 20px;
+}
+.UBPDNamesPublic .names-text .container-button-back .button-back, .UBPDNamesPublic .names-content .container-button-back .button-back {
+  background: #9579bc;
+  color: #F3F3F3;
+  font-size: 20px;
+  font-weight: 100;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+.UBPDNamesPublic .names-text .container-button-back .button-back:hover, .UBPDNamesPublic .names-content .container-button-back .button-back:hover {
+  color: #9579bc;
+  background: #F3F3F3;
+}
+.UBPDNamesPublic .names-content {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  padding: 10px;
+  width: 700px;
+  height: 90vh;
+  border-radius: 10px;
+  -webkit-box-shadow: rgba(2, 2, 2, 0.5411764706) 0px 0px 15px;
+          box-shadow: rgba(2, 2, 2, 0.5411764706) 0px 0px 15px;
+  background-color: #F3F3F3;
+}
+.UBPDNamesPublic .names-content .loading {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  margin: 150px auto;
+  text-align: center;
+  font-size: 32px;
+  color: #9579bc;
+  background-color: #F3F3F3;
+  font-weight: bold;
+  font-family: "Lato", sans-serif;
+  display: none;
+}
+.UBPDNamesPublic .names-content .table-container {
+  overflow-y: scroll;
+  position: relative;
+  width: 100%;
+  min-height: 50%;
+}
+.UBPDNamesPublic .names-content .table-container .search-container { /* Safari */
+  position: sticky;
+  top: 0;
+  margin-left: 15px;
+}
+.UBPDNamesPublic .names-content .table-container .search-container input {
+  width: 95%;
+  border: none;
+  padding: 10px;
+  font-family: "Lato", sans-serif;
+  font-size: 14px;
+  color: #323232;
+  border-radius: 15px;
+  margin: 10px 0;
+}
+.UBPDNamesPublic .names-content .table-container .search-container input:focus {
+  outline: none;
+  border: solid 2px #9579bc;
+}
+.UBPDNamesPublic .names-content .table-container .search-container .button-search {
+  position: absolute;
+  right: 45px;
+  top: 15px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.UBPDNamesPublic .names-content .table-container .search-container .button-search:focus {
+  outline: none;
+}
+.UBPDNamesPublic .names-content .table-container .search-container .button-search img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.UBPDNamesPublic .names-content .table-container .table .cabecera td {
+  font-family: "Lato", sans-serif;
+  text-align: center;
+  padding: 10px;
+  color: #323232;
+  font-size: 14px;
+  font-weight: bold;
+}
+.UBPDNamesPublic .names-content .table-container .table tr:nth-child(odd) {
+  color: #F3F3F3;
+  background-color: rgba(121, 188, 182, 0.3137254902);
+}
+.UBPDNamesPublic .names-content .table-container .table td {
+  font-family: "Lato", sans-serif;
+  color: #323232;
+  text-align: center;
+  padding: 5px 0;
+}
+.UBPDNamesPublic .names-content .table-control {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 10px;
+  padding-bottom: 10px;
+}
+.UBPDNamesPublic .names-content .table-control input {
+  display: inline-block;
+  width: 40px;
+  height: 35px;
+  padding: 5px;
+  margin-top: 10px;
+  font-family: "Lato", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #3c2a55;
+  border-radius: 5px;
+  border: 1.5px solid #9579bc;
+  cursor: pointer;
+}
+.UBPDNamesPublic .names-content .table-control input:nth-child(2) {
+  width: 60px;
+  height: 35px;
+  text-align: center;
+}
+.UBPDNamesPublic .names-content .table-control input:nth-child(3) {
+  border: none;
+  text-align: center;
+}
+.UBPDNamesPublic .names-content .table-control input:nth-child(4) {
+  width: 60px;
+  height: 25px;
+  border: none;
+  text-align: center;
+}
+.UBPDNamesPublic .names-content .table-control input:nth-child(1), .UBPDNamesPublic .names-content .table-control input:nth-child(5), .UBPDNamesPublic .names-content .table-control input:nth-child(6) {
+  background: #9579bc;
+  color: #F3F3F3;
+  font-size: 20px;
+  font-weight: 100;
+}
+.UBPDNamesPublic .names-content .table-control input:nth-child(1):hover, .UBPDNamesPublic .names-content .table-control input:nth-child(5):hover, .UBPDNamesPublic .names-content .table-control input:nth-child(6):hover {
+  color: #9579bc;
+  background: #F3F3F3;
+}
+.UBPDNamesPublic .names-content .table-control input:nth-child(1):disabled, .UBPDNamesPublic .names-content .table-control input:nth-child(5):disabled, .UBPDNamesPublic .names-content .table-control input:nth-child(6):disabled {
+  background-color: #F3F3F3;
+  color: #7f7f7f;
+  border: #7f7f7f solid 1px;
+}
+.UBPDNamesPublic .names-content .table-control input:nth-child(6) {
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  padding: 0 10px;
+}
+.UBPDNamesPublic .names-content .table-control .invisible {
+  display: none;
+}
+.UBPDNamesPublic .names-content .error-message {
+  color: red;
+  font-family: "Lato", sans-serif;
+  font-size: 12px;
+  display: none;
+}
+.UBPDNamesPublic .names-content .visible {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .UBPDNamesPublic .names-title h1 {
+    font-size: 20px;
+    width: 90vw;
+  }
+  .UBPDNamesPublic .names-text p {
+    width: 320px;
+  }
+  .UBPDNamesPublic .names-text p a {
+    font-size: 14px;
+    width: 320px;
+  }
+  .UBPDNamesPublic .disclaimer {
+    width: 100%;
+  }
+  .UBPDNamesPublic .names-content {
+    width: 320px;
+    overflow-x: scroll;
+    font-size: 12px;
+    padding: 0;
+  }
+  .UBPDNamesPublic .names-content .table-container .table .cabecera td:nth-child(1) {
+    padding-left: 20px;
+  }
+  .UBPDNamesPublic .names-content .table-container .table .cabecera td {
+    font-size: 12px;
+    padding: 2px;
+  }
+}

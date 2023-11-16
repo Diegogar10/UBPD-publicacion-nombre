@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Son más que 100.000 desaparecidos | Unidad de Búsqueda de Personas Dadas por Desaparecidas</title>
+  <meta name="title" content="Son más que 100.000 desaparecidos | Unidad de Búsqueda de Personas Dadas por Desaparecidas">
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-136097740-1');
+  </script>
+  <link rel="StyleSheet" href="styles.css?V=1.3" type="text/css" />
+  
+  <link rel="icon" href="https://ubpdbusquedadesaparecidos.co/wp-content/uploads/2019/03/cropped-icon-1-32x32.png" sizes="32x32"><link rel="canonical" href="https://ubpdbusquedadesaparecidos.co/listado-desparecidos/">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&amp;family=Lato:ital,wght@0,400;0,700;0,900;1,700&amp;display=swap" rel="stylesheet">    
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136097740-1"></script>
+  <link rel="preconnect dns-prefetch" href="https://www.googletagmanager.com"/>
+  <script src="./index.js"></script>
+  <script src="./script.js"></script>
+</head>
+<body>
+  <div class="UBPDNamesPublic">
+    <div class="names-title">
+      <h1>Son más que 100.000 desaparecidos</h1>  
+    </div>
+    <div class="names-text">
+      <p>
+        Por medio de esta herramienta se pueden buscar los nombres y apellidos que aparecen registrados en el <a href="https://ubpdbusquedadesaparecidos.co/sites/portal-de-datos/universo-de-personas-dadas-por-desaparecidas-v2/" target="_blank">el Universo de Personas dadas por Desaparecidas</a>, el cual construye la UBPD a partir de diferentes fuentes de información.
+      </p>  
+      <div class="container-button-back"><a class='button-back' href="https://ubpdbusquedadesaparecidos.co/listado-personas-desaparecidas/">Volver al listado</a></div>
+    </div>
+    
+    <div class="names-content">
+      <div class="table-container">
+        <div class="search-container">
+          <input id="searchTerm" type="text" placeholder="Busqueda por nombre y apellido" />
+          <button class="button-search"><img src="buscar-icon.png" alt="icono boton buscar"></button>
+        </div>
+        <table class="table">
+          <tr class="cabecera">
+            <td>NO.</td>
+            <td>PRIMER NOMBRE</td>
+            <td>SEGUNDO NOMBRE</td>
+            <td>PRIMER APELLIDO</td>
+            <td>SEGUNDO APELLIDO</td>
+          </tr>
+        </table>
+        <div class="loading visible">Cargando nombres...</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Construcción Tabla -->
+  <script type="module">
+    import nombres from './nombres.js';
+    const containerTable = document.querySelector('.table');
+    
+
+    const capitalize = (str) => {
+      return str.charAt(0).toUpperCase() + str.toLowerCase().slice(1);
+    }
+    
+    const createStructure = (nombre) => {
+      const row =  document.createElement('tr');
+      for(const attr in nombre){
+        if( attr != 'fecha_desaparicion' && attr != 'anio_desaparicion' && attr != 'mes_desaparicion' && attr != 'dia_desaparicion' && attr != 'fecha_desaparicion_ajustada'){
+          const field = document.createElement('td');
+          if(nombre[attr]=='INDEFINIDO'){
+            field.innerText = '';
+          } else {
+            field.innerText = capitalize(nombre[attr].toString());
+          }
+          row.appendChild(field);
+        }
+      } 
+      containerTable.appendChild(row);
+    };
+    
+    function newQuery(arrayNames){
+      arrayNames.map(el => {
+        createStructure(el);
+      });
+    };
+
+    const actualNames = nombres.slice(0, 100);
+    newQuery(actualNames);
+    
+    const loadingMessage = document.querySelector('.loading');
+    const inputSearch = document.querySelector('#searchTerm');
+    loadingMessage.classList.remove('visible');
+  
+    inputSearch.onchange = (e) => {
+      loadingMessage.classList.add('visible');
+      containerTable.innerHTML = `
+      <tr class="cabecera">
+        <td>NO.</td>
+        <td>PRIMER NOMBRE</td>
+        <td>SEGUNDO NOMBRE</td>
+        <td>PRIMER APELLIDO</td>
+        <td>SEGUNDO APELLIDO</td>
+      </tr>`; 
+      
+      setTimeout(()=>{
+        const wordSearch = e.target.value.toLowerCase();
+        if(wordSearch != '') {
+          const newArraySearch = nombres.filter((element)=>{
+            const nombre = `${element.primer_nombre} ${element.segundo_nombre} ${element.primer_apellido} ${element.segundo_apellido}`.toLowerCase();
+            return nombre.includes(wordSearch);
+          }); 
+          newQuery(newArraySearch);
+        }else {
+          newQuery(actualNames);
+        }
+        loadingMessage.classList.remove('visible');
+      },100)
+    }
+
+    
+
+
+  </script>
+</body>
+</html>
