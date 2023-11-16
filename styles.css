@@ -171,6 +171,11 @@ body, html, * {
   -o-object-fit: cover;
      object-fit: cover;
 }
+.UBPDNamesPublic .names-content .table-container .search-count {
+  margin: 0 auto;
+  text-align: center;
+  padding: 5px;
+}
 .UBPDNamesPublic .names-content .table-container .table .cabecera td {
   font-family: "Lato", sans-serif;
   text-align: center;

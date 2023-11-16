@@ -11,7 +11,7 @@
     gtag('js', new Date());
     gtag('config', 'UA-136097740-1');
   </script>
-  <link rel="StyleSheet" href="styles.css?V=1.4" type="text/css" />
+  <link rel="StyleSheet" href="styles.css?V=1.5" type="text/css" />
   
   <link rel="icon" href="https://ubpdbusquedadesaparecidos.co/wp-content/uploads/2019/03/cropped-icon-1-32x32.png" sizes="32x32"><link rel="canonical" href="https://ubpdbusquedadesaparecidos.co/listado-desparecidos/">
 
@@ -41,6 +41,7 @@
           <input id="searchTerm" type="text" placeholder="Busqueda por nombre y apellido" />
           <button class="button-search"><img src="buscar-icon.png" alt="icono boton buscar"></button>
         </div>
+        <div class="search-count"></div>
         <table class="table">
           <tr class="cabecera">
             <td>NO.</td>
@@ -92,10 +93,12 @@
     
     const loadingMessage = document.querySelector('.loading');
     const inputSearch = document.querySelector('#searchTerm');
+    const registrosBuscados = document.querySelector('.search-count');
     loadingMessage.classList.remove('visible');
   
     inputSearch.onchange = (e) => {
       loadingMessage.classList.add('visible');
+      registrosBuscados.innerHTML = '';
       containerTable.innerHTML = `
       <tr class="cabecera">
         <td>NO.</td>
@@ -112,6 +115,7 @@
             const nombre = `${element.primer_nombre} ${element.segundo_nombre} ${element.primer_apellido} ${element.segundo_apellido}`.toLowerCase();
             return nombre.includes(wordSearch);
           }); 
+          registrosBuscados.innerHTML = `Se encontraron ${newArraySearch.length} registros similares a tu búsqueda!`;
           newQuery(newArraySearch);
         }else {
           newQuery(actualNames);
